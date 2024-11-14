@@ -2,7 +2,7 @@
 title: Cap Machine
 date: 2024-11-14T21:04:01Z
 lastmod: 2024-11-14T21:04:01Z
-author: Author Name
+author: Marcelo Bregieira
 # avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: /img/cover.jpg
