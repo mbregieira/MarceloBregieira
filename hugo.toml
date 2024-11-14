@@ -1,4 +1,4 @@
-baseURL = 'https://marcelobregieira.com/'
+# baseURL = 'https://marcelobregieira.com/'
 languageCode = 'en-us'
 title = 'My Cybersecurity Blog'
 theme = 'dream'
