@@ -1,0 +1,45 @@
+baseURL = 'https://marcelobregieira.com/'
+languageCode = 'en-us'
+title = 'My Cybersecurity Blog'
+theme = 'dream'
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+
+[params]
+# zenMode = false
+
+lightTheme = "emerald"
+darkTheme = "forest"
+
+# backgroundImage = "me/background.jpg"
+# backgroundImageDark = ""
+
+author = "Dream"
+description = ""
+avatar = "icone.png"
+headerTitle = "MB Cybersecurity Blog"
+motto = "For a better digital world!"
+
+# footerBottomText = ""
+
+# rss = true
+
+# utterancesRepo = ""
+
+email = "mbregieira@gmail.com"
+
+siteStartYear = 2024
+
+favicon = "favicon.ico"
+
+# options
+stickyNav = true
+reorderNavItems = ["search", "rss", "posts", "categories", "tags"]
+collapseNavItems = ["posts", "categories", "tags"]
+noDefaultSummaryCover = true
+showTableOfContents = true
+showSummaryCoverInPost = true
+showPrevNextPost = true
+reorderShares = ["x", "facebook", "whatsapp"]
+
+# [params.navItems]
