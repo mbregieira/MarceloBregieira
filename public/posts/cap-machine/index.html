@@ -41,13 +41,18 @@
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Web Application">
     <meta property="article:tag" content="Python">
-    <meta property="og:image" content="//localhost:1313/1123.png">
+    <meta property="og:image" content="//localhost:1313/cap1.png">
+    <meta property="og:image" content="//localhost:1313/cap2.png">
+    <meta property="og:image" content="//localhost:1313/cap3.png">
+    <meta property="og:image" content="//localhost:1313/cap4.png">
+    <meta property="og:image" content="//localhost:1313/cap5_v2.png">
+    <meta property="og:image" content="//localhost:1313/cap6.png">
 
 
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/1123.png">
+  <meta name="twitter:image" content="//localhost:1313/cap1.png">
   <meta name="twitter:title" content="Cap HTB CTF Machine">
   <meta name="twitter:description" content="Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.">
 
@@ -290,8 +295,13 @@
   <meta itemprop="description" content="Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.">
   <meta itemprop="datePublished" content="2024-11-14T21:04:01+00:00">
   <meta itemprop="dateModified" content="2024-11-14T21:04:01+00:00">
-  <meta itemprop="wordCount" content="53">
-  <meta itemprop="image" content="//localhost:1313/1123.png">
+  <meta itemprop="wordCount" content="316">
+  <meta itemprop="image" content="//localhost:1313/cap1.png">
+  <meta itemprop="image" content="//localhost:1313/cap2.png">
+  <meta itemprop="image" content="//localhost:1313/cap3.png">
+  <meta itemprop="image" content="//localhost:1313/cap4.png">
+  <meta itemprop="image" content="//localhost:1313/cap5_v2.png">
+  <meta itemprop="image" content="//localhost:1313/cap6.png">
   <meta itemprop="keywords" content="IDOR,Log Analysis,Web Application,Python">
 
       <header>
@@ -301,7 +311,7 @@
             Thursday, Nov 14, 2024
           
 
-          | <span>1 minute read</span>
+          | <span>2 minute read</span>
 
           
         </p>
@@ -355,18 +365,48 @@
       
 
       <p>Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.</p>
-<p>Improper controls result in Insecure Direct Object Reference giving access to another user&rsquo;s capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root.</p>
-<img src="/1123.png" alt="nmap result" style="width:100%; max-width:600px;">
+<p>Let&rsquo;s Get to Work!</p>
+<p>First of all, like with all other machines, we have an IP address. Let&rsquo;s start with enumeration.
+<img src="/cap1.png" alt="nmap result" style="width:100%; max-width:600px;">
+We see that three ports are open: 21 (FTP), 22 (SSH), and 80 (HTTP).</p>
+<p>Let’s take a look at the HTTP service.</p>
+<p>We’re presented with a dashboard. As we explore the site, which doesn’t have many active features, we navigate to Security Snapshot.
+<img src="/cap2.png" alt="nmap result" style="width:100%; max-width:600px;">
+From the URL, we notice it’s set to http://10.10.10.245/data/245.
+<img src="/cap3.png" alt="nmap result" style="width:100%; max-width:600px;">
+Examining the requests through BurpSuite, we see there’s no cookie or ID associated with it.</p>
+<p><strong>Smells like a vulnerability!</strong></p>
+<p>We change the URL to another number (a lower one) and can see other users&rsquo; data! Generally, the first entries tend to be the most interesting.
+<img src="/cap4.png" alt="nmap result" style="width:100%; max-width:600px;">
+So, we go to http://10.10.10.245/data/0 and download the file, which results in a .pcap file that we can analyze in Wireshark.</p>
+<p>Analyzing the file, within the FTP protocol, we find a password in plain text, giving us the credentials nathan:B&lt;<strong>snip</strong>&gt;!.
+<img src="/cap5_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
+Let’s move on to the other services, starting with FTP. Using the credentials obtained from the .pcap file, we gain access!
+<img src="/cap6.png" alt="nmap result" style="width:100%; max-width:600px;">
+From there, we retrieve our first flag in user.txt.
+<img src="/cap7_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
+Now, let’s try the SSH service. Using the same credentials, we gain access again!
+<img src="/cap8.png" alt="nmap result" style="width:100%; max-width:600px;">
+Now, we want to escalate privileges to root! Using the command <strong>getcap -r / 2&gt;/dev/null</strong>, we check which binaries have elevated privileges.
+<img src="/cap9.png" alt="nmap result" style="width:100%; max-width:600px;">
+We notice that python3.8 has some elevated capabilities. Let’s investigate further.
+After a quick search on GTFObins, we find that if CAP_SETUID is enabled on the Python binary, we can escalate privileges.
+<img src="/cap11.png" alt="nmap result" style="width:100%; max-width:600px;">
+As we can see from our getcap output, it’s enabled. So, using the command suggested by GTFObins, we escalate our privileges to root.
+<img src="/cap10.png" alt="nmap result" style="width:100%; max-width:600px;">
+And that’s how we obtain the root flag in the root folder.
+<img src="/cap12_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
+Another machine completed! On to the next one!</p>
 
       
       <div class="divider"></div>
       <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
         
-        <a class="group btn btn-outline" href="/posts/first-real-world-vulnerability/" title="Vulnerabilities in Plain Sight - IDOR Flaws in Law Enforcement Document Management">
+        <a class="group btn btn-outline" href="/posts/first-real-world-vulnerability/" title="Vulnerabilities in Plain Sight - IDOR in Law Enforcement Document Management">
           <ion-icon name="chevron-back"></ion-icon>
           <div class="inline-flex flex-col items-start">
             <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">Previous page</span>
-            <span class="max-w-48 truncate">Vulnerabilities in Plain Sight - IDOR Flaws in Law Enforcement Document Management</span>
+            <span class="max-w-48 truncate">Vulnerabilities in Plain Sight - IDOR in Law Enforcement Document Management</span>
           </div>
         </a>
         

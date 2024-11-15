@@ -5,10 +5,7 @@
     <loc>//localhost:1313/categories/</loc>
     <lastmod>2024-11-15T11:37:27+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/category1/</loc>
-    <lastmod>2024-11-15T11:37:27+00:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/posts/first-real-world-vulnerability/</loc>
+    <loc>//localhost:1313/tags/idor/</loc>
     <lastmod>2024-11-15T11:37:27+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/</loc>
@@ -17,22 +14,19 @@
     <loc>//localhost:1313/posts/</loc>
     <lastmod>2024-11-15T11:37:27+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/tag1/</loc>
-    <lastmod>2024-11-15T11:37:27+00:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/tag2/</loc>
+    <loc>//localhost:1313/categories/real-world/</loc>
     <lastmod>2024-11-15T11:37:27+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/</loc>
+    <lastmod>2024-11-15T11:37:27+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/first-real-world-vulnerability/</loc>
     <lastmod>2024-11-15T11:37:27+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/cap-machine/</loc>
     <lastmod>2024-11-14T21:04:01+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/categories/ctf/</loc>
-    <lastmod>2024-11-14T21:04:01+00:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/idor/</loc>
     <lastmod>2024-11-14T21:04:01+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/log-analysis/</loc>
