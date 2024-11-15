@@ -6,8 +6,8 @@ author: Marcelo Bregieira
 avatar: /author.jpg
 # authorlink: https://author.site
 cover: /cap.png
-#images:
-#   - /cap.png
+images:
+   - /1123.png
 categories:
   - CTF
 tags:
@@ -23,4 +23,6 @@ Cap is an Linux machine running an HTTP server that performs administrative func
 
 <!--more-->
 
-Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root. 
+Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root.
+
+<img src="/1123.png" alt="nmap result" style="width:100%; max-width:600px;">

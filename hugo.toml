@@ -18,7 +18,7 @@ author = "Dream"
 description = ""
 avatar = "icone.png"
 headerTitle = "MB Cybersecurity Blog"
-motto = "For a better digital world!"
+motto = "For a safer digital world!"
 
 # footerBottomText = ""
 
@@ -40,7 +40,7 @@ noDefaultSummaryCover = true
 showTableOfContents = true
 showSummaryCoverInPost = true
 showPrevNextPost = true
-reorderShares = ["x", "facebook", "whatsapp"]
+reorderShares = [""]
 
 # [params.navItems]
 

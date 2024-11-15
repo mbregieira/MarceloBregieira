@@ -6,13 +6,13 @@
     <description>Recent content in Tag1 on My Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Nov 2024 21:04:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2024 11:37:27 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/tags/tag1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cap Machine</title>
-      <link>//localhost:1313/posts/cap-machine/</link>
-      <pubDate>Thu, 14 Nov 2024 21:04:01 +0000</pubDate>
-      <guid>//localhost:1313/posts/cap-machine/</guid>
+      <title>First Real World Vulnerability</title>
+      <link>//localhost:1313/posts/first-real-world-vulnerability/</link>
+      <pubDate>Fri, 15 Nov 2024 11:37:27 +0000</pubDate>
+      <guid>//localhost:1313/posts/first-real-world-vulnerability/</guid>
       <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
     </item>
   </channel>

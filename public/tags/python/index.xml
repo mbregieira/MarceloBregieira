@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/cap-machine/</link>
       <pubDate>Thu, 14 Nov 2024 21:04:01 +0000</pubDate>
       <guid>//localhost:1313/posts/cap-machine/</guid>
-      <description>&lt;div style=&#34;text-align: center;&#34;&gt;&#xD;&#xA;  &lt;img src=&#34;//localhost:1313/cap.png&#34; alt=&#34;targets&#34; style=&#34;max-width: 100%;&#34;&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;p&gt;Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

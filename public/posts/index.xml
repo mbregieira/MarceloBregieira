@@ -6,14 +6,21 @@
     <description>Recent content in Posts on My Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Nov 2024 21:04:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2024 11:37:27 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Real World Vulnerability</title>
+      <link>//localhost:1313/posts/first-real-world-vulnerability/</link>
+      <pubDate>Fri, 15 Nov 2024 11:37:27 +0000</pubDate>
+      <guid>//localhost:1313/posts/first-real-world-vulnerability/</guid>
+      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Cap HTB CTF Machine</title>
       <link>//localhost:1313/posts/cap-machine/</link>
       <pubDate>Thu, 14 Nov 2024 21:04:01 +0000</pubDate>
       <guid>//localhost:1313/posts/cap-machine/</guid>
-      <description>&lt;div style=&#34;text-align: center;&#34;&gt;&#xD;&#xA;  &lt;img src=&#34;//localhost:1313/cap.png&#34; alt=&#34;targets&#34; style=&#34;max-width: 100%;&#34;&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;p&gt;Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
