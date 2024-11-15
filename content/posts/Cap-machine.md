@@ -23,4 +23,6 @@ Cap is an Linux machine running an HTTP server that performs administrative func
 
 <!--more-->
 
+<img src="cap.png" alt="Cap HTB CTF Machine" style="width:100%; max-width:600px;">
+
 Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root. 
