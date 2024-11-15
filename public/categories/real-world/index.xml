@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My Cybersecurity Blog</title>
-    <link>//localhost:1313/</link>
-    <description>Recent content on My Cybersecurity Blog</description>
+    <title>Real-World on My Cybersecurity Blog</title>
+    <link>//localhost:1313/categories/real-world/</link>
+    <description>Recent content in Real-World on My Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 15 Nov 2024 11:37:27 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/categories/real-world/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vulnerabilities in Plain Sight - IDOR Flaws in Law Enforcement Document Management</title>
       <link>//localhost:1313/posts/first-real-world-vulnerability/</link>
       <pubDate>Fri, 15 Nov 2024 11:37:27 +0000</pubDate>
       <guid>//localhost:1313/posts/first-real-world-vulnerability/</guid>
       <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cap HTB CTF Machine</title>
-      <link>//localhost:1313/posts/cap-machine/</link>
-      <pubDate>Thu, 14 Nov 2024 21:04:01 +0000</pubDate>
-      <guid>//localhost:1313/posts/cap-machine/</guid>
-      <description>&lt;p&gt;Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
