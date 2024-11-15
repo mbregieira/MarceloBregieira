@@ -43,3 +43,8 @@ showPrevNextPost = true
 reorderShares = ["x", "facebook", "whatsapp"]
 
 # [params.navItems]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
