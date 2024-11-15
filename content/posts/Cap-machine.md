@@ -7,7 +7,7 @@ avatar: author.jpg
 # authorlink: https://author.site
 cover: /img/cover.jpg
 # images:
-#   - /img/cover.jpg
+   - cap.png
 categories:
   - CTF
 tags:
@@ -19,7 +19,9 @@ tags:
 draft: false
 ---
 
-Cut out summary from your post content here.
+![Cap HTB CTF Machine](cap.png)
+
+Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures. Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root. 
 
 <!--more-->
 
