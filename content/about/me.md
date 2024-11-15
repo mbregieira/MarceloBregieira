@@ -1,10 +1,10 @@
 ---
-title: Me
+title: Who am I?
 date: 2024-11-14T21:01:03Z
 draft: false
 ---
 
-Hey there! I’m Marcelo Bregieira, a Cybersecurity Engineer and a Sergent in Portuguese National Guard.
+Hi! I’m Marcelo Bregieira, a Cybersecurity Engineer and a Sergeant in Portuguese National Guard.
 
 <!--more-->
 
