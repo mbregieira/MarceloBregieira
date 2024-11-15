@@ -5,9 +5,9 @@ lastmod: 2024-11-14T21:04:01Z
 author: Marcelo Bregieira
 avatar: author.jpg
 # authorlink: https://author.site
-cover: /img/cover.jpg
+cover: cap.png
 # images:
-   - cap.png
+#   - cap.png
 categories:
   - CTF
 tags:
@@ -15,14 +15,12 @@ tags:
   - Log Analysis
   - Web Application
   - Python
-# nolastmod: true
+nolastmod: true
 draft: false
 ---
 
-![Cap HTB CTF Machine](cap.png)
-
-Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures. Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root. 
+Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures. 
 
 <!--more-->
 
-The remaining content of your post.
+Improper controls result in Insecure Direct Object Reference giving access to another user's capture. The capture contains plaintext credentials and can be used to gain foothold. A Linux capability is then leveraged to escalate to root. 
