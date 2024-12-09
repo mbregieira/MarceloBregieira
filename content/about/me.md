@@ -4,7 +4,7 @@ date: 2024-11-14T21:01:03Z
 draft: false
 ---
 
-Hi! I’m Marcelo Bregieira, a Cybersecurity Engineer and a Sergeant in Portuguese National Guard.
+Hi! I’m Marcelo Bregieira, a Cybersecurity Engineer and a Sergeant in Portuguese National Guard (GNR).
 
 <!--more-->
 
