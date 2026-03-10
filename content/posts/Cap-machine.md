@@ -5,20 +5,20 @@ lastmod: 2024-11-14T21:04:01Z
 author: Marcelo Bregieira
 avatar: /author.jpg
 # authorlink: https://author.site
-cover: /cap.png
+cover: /cap/cap.png
 images:
-   - /cap1.png
-   - /cap2.png
-   - /cap3.png
-   - /cap4.png
-   - /cap5_v2.png
-   - /cap6.png
-   - /cap7_v2.png
-   - /cap8.png
-   - /cap9.png
-   - /cap10.png
-   - /cap11.png
-   - /cap12_v2.png
+   - /cap/cap1.png
+   - /cap/cap2.png
+   - /cap/cap3.png
+   - /cap/cap4.png
+   - /cap/cap5_v2.png
+   - /cap/cap6.png
+   - /cap/cap7_v2.png
+   - /cap/cap8.png
+   - /cap/cap9.png
+   - /cap/cap10.png
+   - /cap/cap11.png
+   - /cap/cap12_v2.png
 categories:
   - CTF
 tags:
