@@ -5,7 +5,7 @@ lastmod: 2024-11-14T21:04:01Z
 author: Marcelo Bregieira
 avatar: /author.jpg
 # authorlink: https://author.site
-cover: /cap.png
+cover: /expressway/expressway_logo.png
 images:
    - /cap1.png
    - /cap2.png
