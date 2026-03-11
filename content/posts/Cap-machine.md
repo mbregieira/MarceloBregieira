@@ -1,7 +1,7 @@
 ---
 title: Cap HTB CTF Machine
-date: 2024-11-14T21:04:01Z
-lastmod: 2024-11-14T21:04:01Z
+date: 2025-11-14T21:04:01Z
+lastmod: 2025-11-14T21:04:01Z
 author: Marcelo Bregieira
 avatar: /author.jpg
 # authorlink: https://author.site
