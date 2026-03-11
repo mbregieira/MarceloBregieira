@@ -38,7 +38,7 @@ nolastmod: true
 draft: false
 ---
 
-ExpressWay is an Linux machine. 
+ExpressWay is an Linux machine that focuses on enumeration beyond standard TCP scanning and introduces the exploitation of VPN-related protocols.
 
 <!--more-->
 
