@@ -4,7 +4,7 @@ date: 2026-03-10T20:01:03Z
 draft: false
 ---
 
-Hi! I’m Marcelo Bregieira, a Cybersecurity Engineer and a Sergeant in the Portuguese National Guard (GNR), digital forensics as team leader.
+Hi! I’m Marcelo Bregieira, a Cybersecurity Engineer and First Sergeant in the Portuguese National Guard (GNR), working as digital forensics team leader.
 
 <!--more-->
 
