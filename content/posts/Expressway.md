@@ -1,7 +1,7 @@
 ---
 title: Expressway HTB CTF
-date: 2024-11-14T21:04:01Z
-lastmod: 2024-11-14T21:04:01Z
+date: 2026-03-11T22:04:01Z
+lastmod: 2026-03-11T22:04:01Z
 author: Marcelo Bregieira
 avatar: /author.jpg
 # authorlink: https://author.site
