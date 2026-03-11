@@ -7,70 +7,173 @@ avatar: /author.jpg
 # authorlink: https://author.site
 cover: /expressway/expressway_logo.png
 images:
-   - /cap1.png
-   - /cap2.png
-   - /cap3.png
-   - /cap4.png
-   - /cap5_v2.png
-   - /cap6.png
-   - /cap7_v2.png
-   - /cap8.png
-   - /cap9.png
-   - /cap10.png
-   - /cap11.png
-   - /cap12_v2.png
+   - /expressway/expressway1.jpg
+   - /expressway/expressway2.jpg
+   - /expressway/expressway3.jpg
+   - /expressway/expressway4.jpg
+   - /expressway/expressway5.jpg
+   - /expressway/expressway6.jpg
+   - /expressway/expressway7.jpg
+   - /expressway/expressway8.jpg
+   - /expressway/expressway9.jpg
+   - /expressway/expressway10.jpg
+   - /expressway/expressway11.jpg
+   - /expressway/expressway12.jpg
+   - /expressway/expressway13.jpg
+   - /expressway/expressway14.jpg
+   - /expressway/expressway15.jpg
+   - /expressway/expressway16.jpg
+   - /expressway/expressway17.jpg
+   - /expressway/expressway18.jpg
+   - /expressway/expressway19.jpg
+   - /expressway/expressway20.jpg
+   - /expressway/expressway21.jpg
+   - /expressway/expressway22.jpg
 categories:
   - CTF
 tags:
-  - IDOR
-  - Log Analysis
-  - Web Application
-  - Python
+  - ike
+  - sudo
 nolastmod: true
-draft: true
+draft: false
 ---
 
-Cap is an Linux machine running an HTTP server that performs administrative functions including performing network captures. 
+ExpressWay is an Linux machine. 
 
 <!--more-->
 
-Let's Get to Work!
+We start by enumerating the target machine.
+<img src="/expressway1.jpg" alt="nmap command" style="width:100%; max-width:600px;">
+The scan shows only one open port: 22, which corresponds to SSH. 
+<img src="/expressway2.jpg" alt="nmap tcp result" style="width:100%; max-width:600px;">
+From both the TTL value (63) and the SSH banner, we can infer that the target is a Linux machine running Debian.
 
-First of all, like with all other machines, we have an IP address. Let's start with enumeration.
-<img src="/cap1.png" alt="nmap result" style="width:100%; max-width:600px;">
-We see that three ports are open: 21 (FTP), 22 (SSH), and 80 (HTTP). 
+However, having only port 22 open is unusual for Hack The Box CTFs. Brute-forcing SSH without any prior user enumeration is rarely the intended path. In most cases, the solution lies in deeper enumeration, so the next step is to scan UDP ports.
 
-Let’s take a look at the HTTP service.
+<img src="/expressway3.jpg" alt="nmap udp command" style="width:100%; max-width:600px;">
 
-We’re presented with a dashboard. As we explore the site, which doesn’t have many active features, we navigate to Security Snapshot.
-<img src="/cap2.png" alt="nmap result" style="width:100%; max-width:600px;">
-From the URL, we notice it’s set to http://10.10.10.245/data/245.
-<img src="/cap3.png" alt="nmap result" style="width:100%; max-width:600px;">
-Examining the requests through BurpSuite, we see there’s no cookie or ID associated with it.
+After waiting quite a long time, we obtain the results.
 
-**Smells like a vulnerability!**
+<img src="/expressway4.jpg" alt="nmap udp result" style="width:100%; max-width:600px;">
 
+Two ports immediately stand out:
 
-We change the URL to another number (a lower one) and can see other users' data! Generally, the first entries tend to be the most interesting.
-<img src="/cap4.png" alt="nmap result" style="width:100%; max-width:600px;">
-So, we go to http://10.10.10.245/data/0 and download the file, which results in a .pcap file that we can analyze in Wireshark.
+ - 69 – TFTP
+ - 500 – ISAKMP
 
-Analyzing the file, within the FTP protocol, we find a password in plain text, giving us the credentials nathan:B<**snip**>!.
-<img src="/cap5_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
-Let’s move on to the other services, starting with FTP. Using the credentials obtained from the .pcap file, we gain access!
-<img src="/cap6.png" alt="nmap result" style="width:100%; max-width:600px;">
-From there, we retrieve our first flag in user.txt.
-<img src="/cap7_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
-Now, let’s try the SSH service. Using the same credentials, we gain access again!
-<img src="/cap8.png" alt="nmap result" style="width:100%; max-width:600px;">
-Now, we want to escalate privileges to root! Using the command **getcap -r / 2>/dev/null**, we check which binaries have elevated privileges.
-<img src="/cap9.png" alt="nmap result" style="width:100%; max-width:600px;">
-We notice that python3.8 has some elevated capabilities. Let’s investigate further.
-After a quick search on GTFObins, we find that if CAP_SETUID is enabled on the Python binary, we can escalate privileges.
-<img src="/cap11.png" alt="nmap result" style="width:100%; max-width:600px;">
-As we can see from our getcap output, it’s enabled. So, using the command suggested by GTFObins, we escalate our privileges to root.
-<img src="/cap10.png" alt="nmap result" style="width:100%; max-width:600px;">
-And that’s how we obtain the root flag in the root folder.
-<img src="/cap12_v2.png" alt="nmap result" style="width:100%; max-width:600px;">
-Another machine completed! On to the next one!
+We begin with TFTP and check whether Nmap provides any enumeration scripts for it.
+
+<img src="/expressway5.jpg" alt="find command" style="width:100%; max-width:600px;">
+
+We find two relevant scripts. We will try tftp-enum.nse to see if it reveals anything useful.
+
+<img src="/expressway6.jpg" alt="nmap script tftp" style="width:100%; max-width:600px;">
+
+The script returns an interesting result: a file named ciscortr.cfg exists on the server. 
+
+We will interact with the TFTP service and download it.
+
+<img src="/expressway7.jpg" alt="tftp help" style="width:100%; max-width:600px;">
+<img src="/expressway8.jpg" alt="tftp download" style="width:100%; max-width:600px;">
+
+Now that we have the file, we can read its contents.
+
+<img src="/expressway9.jpg" alt="ciscortr content" style="width:100%; max-width:600px;">
+
+Inside the configuration file we find something interesting: a potential username ike.
+
+However, performing a brute-force attack with only a username is generally inefficient, so further enumeration is required.
+
+The next open port is ISAKMP, something I had never encountered before working on this box. 
+
+So I took some time to study it.
+
+ISAKMP stands for Internet Security Association and Key Management Protocol.
+It is a protocol used to negotiate and establish Security Associations (SA) in IPsec.
+
+Common ports associated with it are:
+
+ - UDP 500 → IKE / ISAKMP
+
+ - UDP 4500 → IPsec NAT-T (which is also open on this machine)
+
+When a VPN client connects, it sends a packet to UDP port 500. The server responds and both sides negotiate parameters such as:
+
+ - encryption algorithms
+
+ - authentication methods
+
+ - cryptographic keys
+
+Once the negotiation is complete, a Security Association is established and the IPsec traffic becomes encrypted.
+
+One important implication is that this process can be vulnerable to attacks such as IKE Aggressive Mode PSK cracking.
+
+While researching this, I discovered the tool ike-scan (https://github.com/royhills/ike-scan), which can be used to interact with IKE services.
+
+<img src="/expressway10.jpg" alt="ike-scan" style="width:100%; max-width:600px;">
+
+Let’s try it.
+
+<img src="/expressway11.jpg" alt="ike hash" style="width:100%; max-width:600px;">
+
+From the returned value we can see that the handshake belongs to the user **ike**, and we obtain a hash that can potentially be cracked.
+
+Time to crack it.
+
+**This smells like password reuse!**
+
+<img src="/expressway12.jpg" alt="hashcat identify" style="width:100%; max-width:600px;">
+
+We can see that Hashcat correctly identifies the hash type.
+
+<img src="/expressway13.jpg" alt="hashcat command" style="width:100%; max-width:600px;">
+<img src="/expressway14.jpg" alt="hashcat result" style="width:100%; max-width:600px;">
+
+Eventually, we successfully recover the password for the ike user.
+
+Next, we test whether these credentials also work for SSH.
+
+<img src="/expressway15.jpg" alt="ssh login" style="width:100%; max-width:600px;">
+
+They do.
+
+We can now log in and retrieve our first flag: user.txt.
+
+One of the first things I like to do after gaining a shell on a Linux machine is check the sudo privileges.
+
+<img src="/expressway16.jpg" alt="sudo privileges" style="width:100%; max-width:600px;">
+
+Unfortunately, the user ike does not have any sudo permissions.
+
+At this point, I turn to the good old LinPEAS.
+
+<img src="/expressway17.jpg" alt="upload linpeas" style="width:100%; max-width:600px;">
+
+We upload LinPEAS to the target machine and run it, paying close attention to anything highlighted in red, as these usually indicate potential privilege-escalation vectors.
+
+<img src="/expressway18.jpg" alt="sudo version red" style="width:100%; max-width:600px;">
+
+The first item highlighted in red is the sudo version: 1.9.17. Let’s investigate it.
+
+<img src="/expressway19.jpg" alt="google sudo version" style="width:100%; max-width:600px;">
+
+A quick search reveals CVE-2025-32463, a privilege escalation vulnerability affecting this version, exactly what we need.
+
+Let’s see if the exploit works.
+
+<img src="/expressway20.jpg" alt="download POC" style="width:100%; max-width:600px;">
+
+We download the proof-of-concept (PoC).
+
+<img src="/expressway21.jpg" alt="transfer POC" style="width:100%; max-width:600px;">
+
+After transferring it to the target machine, we give it execution permissions and run it.
+
+<img src="/expressway22.jpg" alt="POC works" style="width:100%; max-width:600px;">
+
+We now have root access and root flag.
+
+Another machine solved. On to the next one.
+
 
